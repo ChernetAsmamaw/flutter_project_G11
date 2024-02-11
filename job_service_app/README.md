@@ -1,11 +1,7 @@
 # Group 11
 
 ## Job Posting Service Mobile App
-This mobile application project aims to provide a platform for recruiters and job applicants to connect seamlessly. The app features a user-friendly interface with various functionalities, including:
-- Home Page: A landing page where both recruiters and applicants can access key features of the app.
-- Sign Up Page: Allows new users to create accounts, providing basic information such as name, email, and password.
-- Profile Set Up Page: This enables users to set up their profiles with relevant information such as education, work experience, skills, and preferences.
-- Jobs Publication Page: This is where recruiters can post job listings, and applicants can search and apply for available positions.
+This mobile application project built using flutter that aims to provide a platform for recruiters and job applicants to connect seamlessly. The app features a user-friendly interface with various functionalities.
 
 ### Mission
 The primary mission of the job service mobile app is to facilitate the job search process for applicants by:
@@ -16,13 +12,17 @@ The primary mission of the job service mobile app is to facilitate the job searc
 - Continuously improving services and enhancing the responsiveness of the mobile app to user feedback and technological advancements.
 
 ### Features
+- Home Page: A landing page where both recruiters and applicants can access key features of the app.
+- Sign Up Page: Allows new users to create accounts, providing basic information such as name, email, and password.
+- Profile Set Up Page: This enables users to set up their profiles with relevant information such as education, work experience, skills, and preferences.
+- Jobs Publication Page: This is where recruiters can post job listings, and applicants can search and apply for available positions.
 - Recruiter Dashboard: A dedicated section for recruiters to manage job postings, view applicant profiles, and track the status of job applications.
-Applicant Dashboard: Allows applicants to browse job listings, manage applications, and update their profiles.
+- Applicant Dashboard: Allows applicants to browse job listings, manage applications, and update their profiles.
 - Search and Filter: Enables users to search for jobs based on keywords, location, industry, and other relevant criteria.
 - Notifications: Sends real-time notifications to users regarding new job postings, application updates, and other important events.
 - Feedback and Support: Provides channels for users to submit feedback, report issues, and access customer support.
 - Responsive Design: Ensures the mobile app is accessible and functional across various devices and screen sizes.
-Future Enhancements
+#### Future Enhancements
 - Advanced Matching Algorithms: Implement algorithms to match job postings with applicant profiles based on skills, experience, and preferences.
 - Machine Learning Integration: Utilize machine learning techniques to personalize job recommendations and improve the accuracy of job matches.
 - Enhanced Security Measures: Implement additional security measures to protect user data and prevent unauthorized access.
