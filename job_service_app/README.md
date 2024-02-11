@@ -22,7 +22,7 @@ The primary mission of the job service mobile app is to facilitate the job searc
 - Notifications: Sends real-time notifications to users regarding new job postings, application updates, and other important events.
 - Feedback and Support: Provides channels for users to submit feedback, report issues, and access customer support.
 - Responsive Design: Ensures the mobile app is accessible and functional across various devices and screen sizes.
-*Future Enhancements*
+<br>*Future Enhancements*
 - Advanced Matching Algorithms: Implement algorithms to match job postings with applicant profiles based on skills, experience, and preferences.
 - Machine Learning Integration: Utilize machine learning techniques to personalize job recommendations and improve the accuracy of job matches.
 - Enhanced Security Measures: Implement additional security measures to protect user data and prevent unauthorized access.
