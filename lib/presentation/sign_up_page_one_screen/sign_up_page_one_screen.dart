@@ -1,16 +1,15 @@
-import 'package:another_stepper/dto/stepper_data.dart';
-import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:job_service_app/core/app_export.dart';
 import 'package:job_service_app/widgets/app_bar/appbar_leading_image.dart';
 import 'package:job_service_app/widgets/app_bar/custom_app_bar.dart';
 import 'package:job_service_app/widgets/custom_elevated_button.dart';
+import 'package:job_service_app/widgets/another_stepper.dart';
+import 'package:job_service_app/dto/stepper_data.dart';
+import 'package:job_service_app/presentation/applicant_sign_up_page.dart';
+import 'package:job_service_app/presentation/recruiter_sign_up_page.dart';
 
 class SignUpPageOneScreen extends StatelessWidget {
-  const SignUpPageOneScreen({Key? key})
-      : super(
-          key: key,
-        );
+  const SignUpPageOneScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +38,12 @@ class SignUpPageOneScreen extends StatelessWidget {
                 width: 226.h,
                 text: "Sign Up as an Applicant",
                 buttonTextStyle: CustomTextStyles.bodyMediumRobotoOnPrimary,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => ApplicantSignUpPage()),
+                  );
+                },
               ),
               SizedBox(height: 22.v),
               CustomElevatedButton(
@@ -46,6 +51,12 @@ class SignUpPageOneScreen extends StatelessWidget {
                 width: 226.h,
                 text: "Sign Up as a Recruiter",
                 buttonTextStyle: CustomTextStyles.bodyMediumRobotoOnPrimary,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => RecruiterSignUpPage()),
+                  );
+                },
               ),
               Spacer(
                 flex: 67,
@@ -67,7 +78,6 @@ class SignUpPageOneScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   PreferredSizeWidget _buildAppBar(BuildContext context) {
     return CustomAppBar(
       leadingWidth: double.maxFinite,
@@ -81,7 +91,6 @@ class SignUpPageOneScreen extends StatelessWidget {
     );
   }
 
-  /// Section Widget
   Widget _buildStepper(BuildContext context) {
     return AnotherStepper(
       stepperDirection: Axis.horizontal,
