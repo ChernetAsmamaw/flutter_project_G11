@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:job_service_app/presentation/sign_up_page_one_screen/sign_up_page_one_screen.dart';
 import 'package:job_service_app/presentation/sign_up_page_screen/sign_up_page_screen.dart';
-import 'package:job_service_app/presentation/profilre_set_up_page_screen/profilre_set_up_page_screen.dart';
+import 'package:job_service_app/presentation/profile_set_up_page_screen/profilre_set_up_page_screen.dart';
 import 'package:job_service_app/presentation/onboarding_1_applicant_screen/onboarding_1_applicant_screen.dart';
 import 'package:job_service_app/presentation/onboarding_2_recruiter_screen/onboarding_2_recruiter_screen.dart';
 import 'package:job_service_app/presentation/home_page_1_applicant_container_screen/home_page_1_applicant_container_screen.dart';

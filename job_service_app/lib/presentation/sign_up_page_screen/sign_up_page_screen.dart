@@ -2,6 +2,7 @@ import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:job_service_app/core/app_export.dart';
+import 'package:job_service_app/presentation/onboarding_1_applicant_screen/onboarding_1_applicant_screen.dart';
 import 'package:job_service_app/widgets/app_bar/appbar_leading_image.dart';
 import 'package:job_service_app/widgets/app_bar/custom_app_bar.dart';
 import 'package:job_service_app/widgets/custom_elevated_button.dart';
@@ -46,9 +47,12 @@ class SignUpPageScreen extends StatelessWidget {
                   children: [
                     _buildStepper(context),
                     SizedBox(height: 16.v),
-                    Text(
-                      "Sign Up ",
-                      style: CustomTextStyles.titleLargeRoboto,
+                    CustomElevatedButton(
+                      text: "Sign Up ",
+                      onPressed: () {
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => Onboarding1ApplicantScreen()));
+                      
+                      },
                     ),
                     SizedBox(height: 15.v),
                     Align(

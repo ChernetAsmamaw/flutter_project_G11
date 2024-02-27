@@ -11,6 +11,9 @@ dependencies:
   country_pickers: ^2.0.0
   another_stepper: ^1.2.2
   intl: ^0.18.0
+  google_sign_in: ^6.2.1
+  provider: ^6.1.1
+  firebase_core: ^2.25.4
 dev_dependencies: 
   flutter_test: 
     sdk: flutter

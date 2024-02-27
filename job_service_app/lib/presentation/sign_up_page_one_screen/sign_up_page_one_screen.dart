@@ -2,6 +2,8 @@ import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:job_service_app/core/app_export.dart';
+import 'package:job_service_app/presentation/sign_in_page_screen/sign_in_page_screen.dart';
+import 'package:job_service_app/presentation/sign_up_page_screen/sign_up_page_screen.dart';
 import 'package:job_service_app/widgets/app_bar/appbar_leading_image.dart';
 import 'package:job_service_app/widgets/app_bar/custom_app_bar.dart';
 import 'package:job_service_app/widgets/custom_elevated_button.dart';
@@ -39,6 +41,12 @@ class SignUpPageOneScreen extends StatelessWidget {
                 width: 226.h,
                 text: "Sign Up as an Applicant",
                 buttonTextStyle: CustomTextStyles.bodyMediumRobotoOnPrimary,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPageScreen()),
+                  );
+                },
               ),
               SizedBox(height: 22.v),
               CustomElevatedButton(
@@ -46,6 +54,12 @@ class SignUpPageOneScreen extends StatelessWidget {
                 width: 226.h,
                 text: "Sign Up as a Recruiter",
                 buttonTextStyle: CustomTextStyles.bodyMediumRobotoOnPrimary,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignUpPageScreen()),
+                  );
+                },
               ),
               Spacer(
                 flex: 67,
@@ -58,6 +72,7 @@ class SignUpPageOneScreen extends StatelessWidget {
               Text(
                 "Sign In",
                 style: CustomTextStyles.titleMediumSFProDisplayPrimary,
+
               ),
               SizedBox(height: 71.v),
             ],
