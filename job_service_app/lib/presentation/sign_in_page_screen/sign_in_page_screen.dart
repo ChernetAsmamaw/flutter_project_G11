@@ -204,6 +204,6 @@ class SignInPageScreenState extends State<SignInPageScreen> {
     }).catchError((onError) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(onError.toString())));
-});
-}
+    });
+  }
 }

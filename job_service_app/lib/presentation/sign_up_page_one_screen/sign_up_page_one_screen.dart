@@ -1,12 +1,15 @@
 import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:job_service_app/auth/auth_methods.dart';
 import 'package:job_service_app/core/app_export.dart';
 import 'package:job_service_app/presentation/sign_in_page_screen/sign_in_page_screen.dart';
 import 'package:job_service_app/presentation/sign_up_page_screen/sign_up_page_screen.dart';
 import 'package:job_service_app/widgets/app_bar/appbar_leading_image.dart';
 import 'package:job_service_app/widgets/app_bar/custom_app_bar.dart';
 import 'package:job_service_app/widgets/custom_elevated_button.dart';
+
+final AuthMethods _authMethods = AuthMethods();
 
 class SignUpPageOneScreen extends StatelessWidget {
   const SignUpPageOneScreen({Key? key})
@@ -72,7 +75,6 @@ class SignUpPageOneScreen extends StatelessWidget {
               Text(
                 "Sign In",
                 style: CustomTextStyles.titleMediumSFProDisplayPrimary,
-
               ),
               SizedBox(height: 71.v),
             ],

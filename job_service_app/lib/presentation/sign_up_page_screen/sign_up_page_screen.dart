@@ -1,6 +1,7 @@
 import 'package:another_stepper/dto/stepper_data.dart';
 import 'package:another_stepper/widgets/another_stepper.dart';
 import 'package:flutter/material.dart';
+import 'package:job_service_app/auth/auth_methods.dart';
 import 'package:job_service_app/core/app_export.dart';
 import 'package:job_service_app/presentation/onboarding_1_applicant_screen/onboarding_1_applicant_screen.dart';
 import 'package:job_service_app/widgets/app_bar/appbar_leading_image.dart';
@@ -9,17 +10,17 @@ import 'package:job_service_app/widgets/custom_elevated_button.dart';
 import 'package:job_service_app/widgets/custom_outlined_button.dart';
 import 'package:job_service_app/widgets/custom_text_form_field.dart';
 
+final AuthMethods _authMethods = AuthMethods();
+
 class SignUpPageScreen extends StatelessWidget {
   SignUpPageScreen({Key? key})
       : super(
           key: key,
         );
 
-  TextEditingController fullNameController = TextEditingController();
-
-  TextEditingController emailController = TextEditingController();
-
-  TextEditingController passwordController = TextEditingController();
+  final nameEditTextController = TextEditingController();
+  final emailEditTextController = TextEditingController();
+  final passwordEditTextController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -50,8 +51,11 @@ class SignUpPageScreen extends StatelessWidget {
                     CustomElevatedButton(
                       text: "Sign Up ",
                       onPressed: () {
-                       Navigator.push(context, MaterialPageRoute(builder: (context) => Onboarding1ApplicantScreen()));
-                      
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    Onboarding1ApplicantScreen()));
                       },
                     ),
                     SizedBox(height: 15.v),
@@ -229,13 +233,6 @@ class SignUpPageScreen extends StatelessWidget {
   }
 
   /// Section Widget
-  Widget _buildSignUpButton(BuildContext context) {
-    return CustomElevatedButton(
-      text: "Sign Up",
-    );
-  }
-
-  /// Section Widget
   Widget _buildRowFrame(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -300,4 +297,43 @@ class SignUpPageScreen extends StatelessWidget {
       buttonStyle: CustomButtonStyles.outlinePrimary,
     );
   }
+}
+
+Widget _buildSignUpButton(BuildContext context) {
+  return CustomElevatedButton(
+    text: "Sign Up",
+    onPressed: () async {
+  if (_formKey.currentState!.validate()) {
+    String result = await AuthMethods().registerUser(
+      email: emailEditTextController.text.trim(),
+      password: passwordEditTextController.text.trim(),
+      username: nameEditTextController.text.trim(),
+    );
+
+    // Show error message
+    if (result != 'Successfully registered!') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(result)),
+      );
+    } else {
+      // Show success message
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Successfully registered!'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+
+      // Clear the form fields
+      nameEditTextController.clear();
+      emailEditTextController.clear();
+      passwordEditTextController.clear();
+
+      // Navigate to the next screen
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Onboarding1ApplicantScreen()),
+    );
+}
+}
 }
