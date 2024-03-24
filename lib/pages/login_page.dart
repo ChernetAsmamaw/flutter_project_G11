@@ -7,7 +7,10 @@ import '../components/my_signup_button.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
-  LoginPage({super.key, required this.onTap});
+  LoginPage({
+    super.key,
+    required this.onTap,
+  });
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -102,6 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
 
                 MyTextField(
+                  key: const ValueKey("emailTextField"),
                   controller: emailController,
                   hintText: "Email Address",
                   obscurText: false,
