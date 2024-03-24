@@ -16,12 +16,14 @@ class MockFirebaseUser extends Mock implements User {
 void main() {
   group('loginPage', () {
     const emailKey = Key("emailTextField");
+    const passwordKey = Key("passwordTextField");
     testWidgets("Testing Textfields", (WidgetTester tester) async {
       await tester.pumpWidget(
         MaterialApp(home: LoginPage(onTap: () => "logged in!")),
       );
       await tester.pump();
       expect(find.byKey(emailKey), findsOneWidget);
+      expect(find.byKey(passwordKey), findsOneWidget);
     });
   });
 }
