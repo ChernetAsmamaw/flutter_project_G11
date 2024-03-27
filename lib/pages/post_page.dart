@@ -86,6 +86,7 @@ class _PostPageState extends State<PostPage> {
         actions: [
           IconButton(
             onPressed: _signUserOut,
+            key: ValueKey("king"),
             icon: Icon(
               Icons.logout_outlined,
               size: 30,

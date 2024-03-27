@@ -91,6 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 // Logo
                 Icon(
                   Icons.signpost_rounded,
+                  key: const ValueKey("bb"),
                   size: 50,
                   color: Colors.blueGrey[800],
                 ),
@@ -101,6 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     "Welcome to JAP! Let\'s get you started.",
+                    key: const ValueKey("cc")
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Poppins',

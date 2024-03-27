@@ -87,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                 // Logo
                 Icon(
                   Icons.signpost_rounded,
+                  key: const ValueKey("q"),
                   size: 100,
                   color: Colors.blueGrey[800],
                 ),
@@ -119,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
 
                 Padding(
+                  key: const ValueKey("aji"),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 25.0,
                     vertical: 10,
@@ -137,6 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20),
 
                 MyButton(
+                  key: const ValueKey("MyButton"),
                   text: "Sign In",
                   onTap: signUserIn,
                 ),
@@ -206,6 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(color: Colors.blueGrey[700]),
                       ),
                       Padding(
+                        key: const ValueKey("Padding"),
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: GestureDetector(
                           onTap: widget.onTap,
