@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:job_application_portal/pages/home_page.dart';
 import 'edit_job_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'home_page.dart';
 
 class JobDetailsPage extends StatefulWidget {
@@ -44,6 +45,16 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
       );
     } else {
       print('Job ID is null. Unable to delete job.');
+    }
+  }
+
+  Future<void> _launchGoogleForm() async {
+    final Uri url = Uri.parse(
+        'https://docs.google.com/forms/d/e/1FAIpQLSfn1DtOA3ghZ4Uf70NEcfElUUiDTo1DEp9eCXPPUr1qofC_Ew/viewform?usp=sf_link');
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url);
+    } else {
+      print('Could not launch $url');
     }
   }
 
@@ -145,9 +156,7 @@ class _JobDetailsPageState extends State<JobDetailsPage> {
             SizedBox(height: 50),
             Center(
               child: ElevatedButton(
-                onPressed: () {
-                  // Add your button action here
-                },
+                onPressed: _launchGoogleForm,
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.blue),
                   padding: MaterialStateProperty.all(

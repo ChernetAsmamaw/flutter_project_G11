@@ -102,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Text(
                     "Welcome to JAP! Let\'s get you started.",
-                    key: const ValueKey("cc")
+                    key: const ValueKey("cc"),
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Poppins',

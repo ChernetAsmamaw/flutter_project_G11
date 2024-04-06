@@ -16,47 +16,71 @@ class _ProfilePageState extends State<ProfilePage> {
   UserProfile? _userProfile;
   final UserProfileService _userProfileService = UserProfileService();
 
-  bool _isEditing = false; // Track if the user is editing the profile
+  bool _isEditing = false;
 
   @override
   void initState() {
     super.initState();
-    _loadUserProfile();
+    _loadCurrentUserProfile();
   }
 
-  Future<void> _loadUserProfile() async {
-    // Load user profile from Firestore or initialize a new one
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null) {
-      final snapshot = await FirebaseFirestore.instance
-          .collection('profiles')
-          .doc(userId)
-          .get();
-      if (snapshot.exists) {
-        final data = snapshot.data() as Map<String, dynamic>;
-        _userProfile = UserProfile.fromJson(data);
-        setState(() {});
-      } else {
-        setState(() {
-          _userProfile = null;
-        });
-      }
-    }
-  }
-
-  Future<void> _updateProfile() async {
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null && _userProfile != null) {
-      await _userProfileService.updateUserProfile(_userProfile!);
+  Future<void> _loadCurrentUserProfile() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      _loadUserProfile(user.uid);
+    } else {
       setState(() {
-        _isEditing = false;
+        _userProfile = null;
       });
     }
   }
 
+  Future<void> _loadUserProfile(String userId) async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection('profiles')
+        .doc(userId)
+        .get();
+    if (snapshot.exists) {
+      final data = snapshot.data() as Map<String, dynamic>;
+      setState(() {
+        _userProfile = UserProfile.fromJson(data);
+      });
+    } else {
+      setState(() {
+        _userProfile = null;
+      });
+    }
+  }
+
+  Future<void> _updateProfile() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      final userId = user.uid;
+      final userDocRef =
+          FirebaseFirestore.instance.collection('profiles').doc(userId);
+
+      if (_userProfile != null) {
+        try {
+          await userDocRef.set(_userProfile!.toJson(), SetOptions(merge: true));
+          setState(() {
+            _isEditing = false;
+          });
+          print('Profile updated successfully');
+        } catch (e) {
+          print('Error updating profile: $e');
+          // Handle the error appropriately
+        }
+      } else {
+        print('User profile is null');
+      }
+    } else {
+      print('User is not authenticated');
+    }
+  }
+
   Future<void> _deleteProfile() async {
-    final userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null && _userProfile != null) {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null && _userProfile != null) {
       await _userProfileService.deleteUserProfile(_userProfile!.id!);
       setState(() {
         _userProfile = null;
